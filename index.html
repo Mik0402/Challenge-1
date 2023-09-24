@@ -15,23 +15,23 @@
     <title>Weather App</title>
   </head>
   <body>
-    <form id="city-form">
-      <input
-        class="enter"
-        type="text"
-        required
-        placeholder="Enter a city"
-        id="city-input"
-      />
-      <button type="submit" class="btn btn-primary" shadow-sm w-100>
-        Search
-      </button>
-      <button class="btn btn-success" shadow-sm w-100 id="current-location">
-        Current Location
-      </button>
-    </form>
-
     <div class="container">
+      <form id="city-form">
+        <input
+          class="enter"
+          type="text"
+          required
+          placeholder="Enter a city"
+          id="city-input"
+        />
+        <button type="submit" class="btn btn-primary" shadow-sm w-100>
+          Search
+        </button>
+        <button class="btn btn-success" shadow-sm w-100 id="current-location">
+          Current Location
+        </button>
+      </form>
+
       <h1 id="location"></h1>
       <h2>Sunday 8/27 at 13:25</h2>
 
@@ -67,10 +67,8 @@
           </ul>
         </div>
       </div>
-    </div>
-    <br />
-    <div class="container-io">
-      <div class="row">
+      <br />
+      <div class="row" id="week-box">
         <div class="col">
           <ul class="days">
             <li><img src="img/cloudy.png" /></li>
@@ -108,6 +106,10 @@
         </div>
       </div>
     </div>
+    <small
+      ><a href="https://github.com/Mik0402/Challenge-1">Open-source code</a>
+      by Mikaela Lammers
+    </small>
     <script src="src/script.js"></script>
   </body>
 </html>
