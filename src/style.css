@@ -15,15 +15,24 @@ form {
 #city-form {
   text-align: center;
 }
-h2 {
-  font-size: 25px;
-}
 #current-location {
   border-radius: 5px;
 }
+h2 {
+  font-size: 25px;
+}
+#all-temp {
+  margin: 0 30px;
+}
+.current-lowTemp {
+  line-height: 10px;
+}
+#icon {
+  height: 100px;
+  margin: 0;
+}
 #description {
   font-size: 25px;
-  margin: 0;
 }
 #temperature {
   font-size: 40px;
@@ -42,7 +51,6 @@ a {
   line-height: 1;
   font-weight: bold;
 }
-
 .unit {
   top: -15px;
   position: relative;
@@ -54,8 +62,15 @@ small {
   font-size: 20px;
   margin: 30px 0;
 }
-.other {
+ul {
   list-style: none;
+}
+#city-box {
+  margin: 0 60px;
+  padding: 0;
+  max-width: 200px;
+}
+.other {
   padding: 5px 5px 0;
   border: 5px solid black;
   border-radius: 5px;
@@ -78,12 +93,7 @@ small {
 .days {
   text-align: center;
   padding: 10px;
-  list-style: none;
 }
-#icon {
-  height: 100px;
-  margin: 0;
-}
-img {
+.days img {
   height: 65px;
 }
