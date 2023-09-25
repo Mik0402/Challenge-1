@@ -1,10 +1,10 @@
-function todayDate() {
-  let currentTime = new Date();
-  let hours = currentTime.getHours();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = currentTime.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -34,17 +34,15 @@ function todayDate() {
     "December",
   ];
 
-  let day = days[currentTime.getDay()];
-  let month = months[currentTime.getMonth()];
-  let date = currentTime.getDate();
-  let hour = currentTime.getHours();
-  let minute = currentTime.getMinutes();
+  let day = days[date.getDay()];
+  let month = months[date.getMonth()];
+  let date = date.getDate();
+  let hour = date.getHours();
+  let minute = date.getMinutes();
 
   let currentDate = `${day} ${month}, ${date} at ${hour}:${minute}.`;
   return currentDate;
 }
-let today = document.querySelector("h2");
-today.innerHTML = todayDate();
 
 function displayWeather(response) {
   let cityElement = document.querySelector("#location");
@@ -63,6 +61,9 @@ function displayWeather(response) {
 
   let wind = document.querySelector(".wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
+
+  let date = document.querySelector("#date");
+  date.innerHTML = todayDate(response.data.dt * 1000);
 
   let icon = document.querySelector("#icon");
   icon.setAttribute(
