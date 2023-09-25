@@ -36,12 +36,11 @@ function formatDate(timestamp) {
 
   let day = days[date.getDay()];
   let month = months[date.getMonth()];
-  let date = date.getDate();
+  let currentDate = date.getDate();
   let hour = date.getHours();
   let minute = date.getMinutes();
 
-  let currentDate = `${day} ${month}, ${date} at ${hour}:${minute}.`;
-  return currentDate;
+  return `${day} ${month}, ${currentDate} at ${hour}:${minute}`;
 }
 
 function displayWeather(response) {
@@ -63,7 +62,7 @@ function displayWeather(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
 
   let date = document.querySelector("#date");
-  date.innerHTML = todayDate(response.data.dt * 1000);
+  date.innerHTML = formatDate(response.data.dt * 1000);
 
   let icon = document.querySelector("#icon");
   icon.setAttribute(
