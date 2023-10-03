@@ -14,6 +14,7 @@ form {
 }
 #city-form {
   text-align: center;
+  display: inline;
 }
 #current-location {
   border-radius: 5px;
