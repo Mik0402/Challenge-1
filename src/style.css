@@ -9,6 +9,9 @@ body {
   padding: 20px;
   background: #ffffff;
 }
+input {
+  padding: 5px 10px;
+}
 #city-form {
   text-align: center;
   display: block;
