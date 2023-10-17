@@ -9,9 +9,7 @@ body {
   padding: 20px;
   background: #ffffff;
 }
-form {
-  margin: 5px 0;
-}
+
 #city-form {
   text-align: center;
   display: inline;
