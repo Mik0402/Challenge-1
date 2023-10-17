@@ -1,5 +1,5 @@
 function formatDate(timestamp) {
-  let date = new Date(timestamp);
+  let date = new Date(timestamp * 1000);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -62,6 +62,8 @@ function displayWeather(response) {
   let date = document.querySelector("#date");
   date.innerHTML = formatDate(response.data.dt * 1000);
 
+  celsiusTemp = response.data.main.temp;
+
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
@@ -96,4 +98,14 @@ function getCurrentLocation(event) {
 }
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", getCurrentLocation);
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
 searchCity("Dallas");
