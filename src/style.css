@@ -9,13 +9,10 @@ body {
   padding: 20px;
   background: #ffffff;
 }
-#city-input {
-  padding: 0 10px 0 0;
-}
 #city-form {
   text-align: center;
-  display: inline;
-  margin: 0;
+  display: block;
+  margin: 5px 0;
 }
 #current-location {
   border-radius: 5px;
