@@ -18,26 +18,31 @@
     <div class="container">
       <form id="city-form">
         <div class="row">
+          <div class="col-6">
+            <input
+              class="enter"
+              type="text"
+              required
+              placeholder="Enter a city"
+              id="city-input"
+              autocomplete="off"
+            />
+          </div>
           <div class="col-3">
-        <input
-          class="enter"
-          type="text"
-          required
-          placeholder="Enter a city"
-          id="city-input"
-          autocomplete="off"
-        />
-        </div>
-        <div>
-        <button type="submit" class="btn btn-primary" shadow-sm w-100>
-          Search
-        </button>
-        </div class="col-3">
-        <div class="col-3">
-        <button class="btn btn-success" shadow-sm w-100 id="current-location">
-          Current Location
-        </button>
-        </div>
+            <button type="submit" class="btn btn-primary" shadow-sm w-100>
+              Search
+            </button>
+          </div>
+          <div class="col-3">
+            <button
+              class="btn btn-success"
+              shadow-sm
+              w-100
+              id="current-location"
+            >
+              Current Location
+            </button>
+          </div>
         </div>
       </form>
 
@@ -54,7 +59,7 @@
           <span class="current-lowTemp">
             <strong id="temperature"> </strong
             ><span class="unit">
-              <a href="#" id="farenheit-link">ºF</a> |
+              <a href="#" id="fahrenheit-link">ºF</a> |
               <a href="#" id="celsius-link">ºC</a></span
             >
             <br /><small id="low"> Low of 74ºF</small>

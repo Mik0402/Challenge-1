@@ -62,6 +62,7 @@ function displayWeather(response) {
   date.innerHTML = formatDate(response.data.dt * 1000);
 
   fahrenheitTemp = response.data.main.temp;
+  celsiusTemp = response.data.main.temp;
 
   let icon = document.querySelector("#icon");
   icon.setAttribute(
