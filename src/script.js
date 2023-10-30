@@ -134,31 +134,32 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForcast(response) {
-  let forcast = response.data.daily;
-  let forcastElement = document.querySelector("#forcast");
+function displayForecast(response) {
+  let forecast = response.data.daily;
 
-  let forcastHTML = `<div class="row">`;
-  forcast.forEach(function (forcastDay, index) {
+  let forecastElement = document.querySelector("#forcast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-      forcastHTML =
-        forcastHTML +
+      forecastHTML =
+        forecastHTML +
         `
       <div class="col-2">
-        <div class="weather-forecast-date">${formatDay(forecastDay.Date)}</div>
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
         <img
           src="http://openweathermap.org/img/wn/${
-            forcastDay.weather[0].icon
+            forecastDay.weather[0].icon
           }@2x.png"
           alt=""
           width="42"
         />
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
-            forcastDay.temp.max
+            forecastDay.temp.max
           )}° </span>
           <span class="weather-forecast-temperature-min"> ${Math.round(
-            forcastDay.temp.min
+            forecastDay.temp.min
           )}° </span>
         </div>
       </div>
@@ -166,14 +167,15 @@ function displayForcast(response) {
     }
   });
 
-  forcastHTML = forcast + `</div>`;
-  forcastElement.innerHTML = forcastHTML;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
-function getForcast(coordinates) {
+function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "be81f193e065bf5feb2d944c7336968b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForcast);
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 searchCity("Dallas");
