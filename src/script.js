@@ -164,10 +164,10 @@ function displayForcast(response) {
       </div>
   `;
   });
-}
-forecastHTML = forecastHTML + `</div>`;
-forecastElement.innerHTML = forecastHTML;
 
+  forecastHTML = forecast + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "fb9ba2ba068d2c8faabc8f622ed7013b";
