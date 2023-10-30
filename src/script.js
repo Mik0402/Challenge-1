@@ -137,7 +137,7 @@ function formatDay(timestamp) {
 
 function displayForcast(response) {
   console.log(response.data.daily);
-  let forcastElement = document.querySelector("#forcast");
+  let forecastElement = document.querySelector("#forcast");
   let days = ["Thu", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class="row">`;
   days.forEach(function (formatDay) {
