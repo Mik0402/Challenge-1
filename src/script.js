@@ -64,14 +64,13 @@ function displayWeather(response) {
   fahrenheitTemp = response.data.main.temp;
   celsiusTemp = response.data.main.temp;
 
-  getForecast(response.data.coord);
-
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
   getForecast(response.data.coord);
 }
 
@@ -136,16 +135,17 @@ function formatDay(timestamp) {
 }
 
 function displayForcast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forcast");
-  let days = ["Thu", "Fri", "Sat", "Sun"];
+
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (formatDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">
-        <div class="weather-forecast-date">${formatDay}</div>
+        <div class="weather-forecast-date">${formatDay(forecastDay.Date)}</div>
         <img
           src="http://openweathermap.org/img/wn/${
             forecastDay.weather[0].icon
@@ -163,6 +163,7 @@ function displayForcast(response) {
         </div>
       </div>
   `;
+    }
   });
 
   forecastHTML = forecast + `</div>`;
