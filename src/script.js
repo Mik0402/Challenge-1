@@ -135,30 +135,30 @@ function formatDay(timestamp) {
 }
 
 function displayForcast(response) {
-  let forecast = response.data.daily;
-  let forecastElement = document.querySelector("#forcast");
+  let forcast = response.data.daily;
+  let forcastElement = document.querySelector("#forcast");
 
-  let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay, index) {
+  let forcastHTML = `<div class="row">`;
+  forcast.forEach(function (forcastDay, index) {
     if (index < 6) {
-      forecastHTML =
-        forecastHTML +
+      forcastHTML =
+        forcastHTML +
         `
       <div class="col-2">
         <div class="weather-forecast-date">${formatDay(forecastDay.Date)}</div>
         <img
           src="http://openweathermap.org/img/wn/${
-            forecastDay.weather[0].icon
+            forcastDay.weather[0].icon
           }@2x.png"
           alt=""
           width="42"
         />
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
-            forecastDay.temp.max
+            forcastDay.temp.max
           )}° </span>
           <span class="weather-forecast-temperature-min"> ${Math.round(
-            forecastDay.temp.min
+            forcastDay.temp.min
           )}° </span>
         </div>
       </div>
@@ -166,14 +166,14 @@ function displayForcast(response) {
     }
   });
 
-  forecastHTML = forecast + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
+  forcastHTML = forcast + `</div>`;
+  forcastElement.innerHTML = forcastHTML;
 }
-function getForecast(coordinates) {
+function getForcast(coordinates) {
   console.log(coordinates);
-  let apiKey = "fb9ba2ba068d2c8faabc8f622ed7013b";
+  let apiKey = "be81f193e065bf5feb2d944c7336968b";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayForcast);
 }
 
 searchCity("Dallas");
