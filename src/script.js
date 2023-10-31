@@ -150,4 +150,4 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-searchCity("Dallas");
+searchCity("Lisbon");
