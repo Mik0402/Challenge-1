@@ -61,9 +61,6 @@ function displayWeather(response) {
   let date = document.querySelector("#date");
   date.innerHTML = formatDate(response.data.dt * 1000);
 
-  fahrenheitTemp = response.data.main.temp;
-  celsiusTemp = response.data.main.temp;
-
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
@@ -101,31 +98,6 @@ function getCurrentLocation(event) {
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", getCurrentLocation);
 
-function displayFahrenheitTemp(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-}
-
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-}
-
-let celsiusTemp = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -157,7 +129,7 @@ function displayForecast(response) {
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
             forecastDay.temp.max
-          )}° </span>
+          )}° </span> |
           <span class="weather-forecast-temperature-min"> ${Math.round(
             forecastDay.temp.min
           )}° </span>
